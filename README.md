@@ -1,0 +1,2 @@
+# AlgorithmGolang
+some record
