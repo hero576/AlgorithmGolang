@@ -6,18 +6,16 @@ import (
 	"fmt"
 )
 
-var (
-	capacity = 10
-)
-
 type ArrayList struct {
-	data []interface{}
-	size int
+	data     []interface{}
+	capacity int
+	size     int
 }
 
 func NewArrayList() *ArrayList {
 	list := new(ArrayList)
-	list.data = make([]interface{}, 0, capacity)
+	list.capacity = 10
+	list.data = make([]interface{}, 0, list.capacity)
 	list.size = 0
 	return list
 }
@@ -40,7 +38,7 @@ func (list *ArrayList) Get(index int) (interface{}, error) {
 }
 
 func (list *ArrayList) checkFull() {
-	if list.size == capacity {
+	if list.size == list.capacity {
 		newdataStore := make([]interface{}, 2*list.size, 2*list.size)
 		copy(newdataStore, list.data)
 		list.data = newdataStore
@@ -68,7 +66,7 @@ func (list *ArrayList) Append(value interface{}) {
 	list.size++
 }
 func (list *ArrayList) Clear() {
-	list.data = make([]interface{}, 0, capacity)
+	list.data = make([]interface{}, 0, list.capacity)
 	list.size = 0
 }
 func (list *ArrayList) Delete(index int) error {
