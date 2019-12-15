@@ -8,5 +8,5 @@ type Iter interface {
 }
 
 type Iterable interface {
-	Iterator() Iter
+	Iterator() Iter //构造初始化接口
 }

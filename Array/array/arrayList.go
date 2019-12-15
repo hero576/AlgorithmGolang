@@ -1,6 +1,7 @@
 package array
 
 import (
+	"AlgorithmGolang/Array/base"
 	"errors"
 	"fmt"
 )
@@ -16,10 +17,18 @@ type ArrayList struct {
 
 func NewArrayList() *ArrayList {
 	list := new(ArrayList)
-	list.data = make([]interface{}, capacity, capacity)
+	list.data = make([]interface{}, 0, capacity)
 	list.size = 0
 	return list
 }
+
+func (list *ArrayList) Iterator() base.Iter {
+	newit := new(ArrayListIterator)
+	newit.currentIdex = 0
+	newit.list = list
+	return newit
+}
+
 func (list *ArrayList) Size() int {
 	return list.size
 }
@@ -59,7 +68,7 @@ func (list *ArrayList) Append(value interface{}) {
 	list.size++
 }
 func (list *ArrayList) Clear() {
-	list.data = make([]interface{}, capacity, capacity)
+	list.data = make([]interface{}, 0, capacity)
 	list.size = 0
 }
 func (list *ArrayList) Delete(index int) error {

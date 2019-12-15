@@ -10,3 +10,7 @@ type List interface {
 	Delete(int) error
 	String() string
 }
+
+type ArrayListIter interface {
+	Iterator() Iter
+}

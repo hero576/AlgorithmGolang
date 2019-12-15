@@ -1,29 +1,24 @@
 package array
 
 import (
-	"AlgorithmGolang/Array/base"
 	"errors"
 )
 
-type ArrayListIter interface {
-	Iterator() base.Iter
-}
-
+//构造指针访问数组
 type ArrayListIterator struct {
 	list        *ArrayList
 	currentIdex int
 }
 
-func (list *ArrayList) Iterable() base.Iter {
+func NewArrayListIter(list *ArrayList) *ArrayListIterator {
 	it := new(ArrayListIterator)
-	it.currentIdex = 0
 	it.list = list
 	return it
 }
 
 func (it *ArrayListIterator) Next() (interface{}, error) {
 	if !it.HasNext() {
-		return nil, errors.New("has not next")
+		return nil, errors.New("has no next")
 	}
 	value, err := it.list.Get(it.currentIdex)
 	it.currentIdex++
