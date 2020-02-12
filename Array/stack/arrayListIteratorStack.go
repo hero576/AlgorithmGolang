@@ -1,18 +1,19 @@
-package array
+package stack
 
 import (
+	array2 "AlgorithmGolang/Array/array"
 	"AlgorithmGolang/Array/base"
 	"fmt"
 )
 
 type ArrayListIteratorStack struct {
-	array *ArrayList
+	array *array2.ArrayList
 	It    base.Iter
 }
 
 func NewArrayListIteratorStack() *ArrayListIteratorStack {
 	it := new(ArrayListIteratorStack)
-	it.array = NewArrayList()
+	it.array = array2.NewArrayList()
 	it.It = it.array.Iterator()
 	return it
 }
@@ -45,16 +46,8 @@ func (s *ArrayListIteratorStack) Push(data interface{}) {
 	}
 }
 func (s *ArrayListIteratorStack) IsFull() bool {
-	if s.array.Size() >= s.array.capacity {
-		return true
-	} else {
-		return false
-	}
+	return s.array.Size() >= s.array.Capacity
 }
 func (s *ArrayListIteratorStack) IsEmpty() bool {
-	if s.array.Size() == 0 {
-		return true
-	} else {
-		return false
-	}
+	return s.array.Size() == 0
 }

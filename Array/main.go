@@ -2,6 +2,7 @@ package main
 
 import (
 	"AlgorithmGolang/Array/array"
+	"AlgorithmGolang/Array/queue"
 	"AlgorithmGolang/Array/stack"
 	"fmt"
 )
@@ -35,7 +36,7 @@ func stackArray() {
 }
 
 func Arrayliststack() {
-	mystack := array.NewArrayListStack()
+	mystack := stack.NewArrayListStack()
 	mystack.Push("1")
 	mystack.Push("2")
 	mystack.Push("3")
@@ -47,7 +48,7 @@ func Arrayliststack() {
 }
 
 func arraylistIteratorStack() {
-	mystack := array.NewArrayListIteratorStack()
+	mystack := stack.NewArrayListIteratorStack()
 	mystack.Push("1")
 	mystack.Push("2")
 	mystack.Push("3")
@@ -62,8 +63,61 @@ func arraylistIteratorStack() {
 	}
 }
 
+func QueueArray1() {
+	myqueue := queue.NewQueueArray()
+	myqueue.EnQueue("1")
+	myqueue.EnQueue("2")
+	myqueue.EnQueue("3")
+	myqueue.EnQueue("4")
+	myqueue.EnQueue("5")
+	fmt.Println(myqueue.DeQueue())
+	fmt.Println(myqueue.DeQueue())
+	fmt.Println(myqueue.DeQueue())
+	fmt.Println(myqueue.DeQueue())
+	fmt.Println(myqueue.DeQueue())
+	fmt.Println(myqueue.DeQueue())
+}
+func CricleQuequArray() {
+	q := queue.NewCircleQueue()
+	q.EnQueue("1")
+	q.EnQueue("1")
+	q.EnQueue("1")
+	q.EnQueue("a")
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+
+}
+
+func stackLink() {
+	s := stack.NewStackLink()
+	for i := 0; i < 100; i++ {
+		s.Push(i)
+	}
+	for data := s.Pop(); data != nil; data = s.Pop() {
+		fmt.Println(data)
+	}
+}
+
+func queueLink() {
+	q := queue.NewQueueLink()
+	q.EnQueue(1)
+	q.EnQueue(1)
+	q.EnQueue(1)
+	q.EnQueue(2)
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+	fmt.Println(q.DeQueue())
+}
+
 func main() {
 	//listIterator()
 	//stackArray()
-	Arrayliststack()
+	//Arrayliststack()
+	//QueueArray1()
+	//CricleQuequArray()
+	//stackLink()
+	queueLink()
 }

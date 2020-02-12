@@ -8,14 +8,14 @@ import (
 
 type ArrayList struct {
 	data     []interface{}
-	capacity int
+	Capacity int
 	size     int
 }
 
 func NewArrayList() *ArrayList {
 	list := new(ArrayList)
-	list.capacity = 10
-	list.data = make([]interface{}, 0, list.capacity)
+	list.Capacity = capacity
+	list.data = make([]interface{}, 0, list.Capacity)
 	list.size = 0
 	return list
 }
@@ -38,7 +38,7 @@ func (list *ArrayList) Get(index int) (interface{}, error) {
 }
 
 func (list *ArrayList) checkFull() {
-	if list.size == list.capacity {
+	if list.size == list.Capacity {
 		newdataStore := make([]interface{}, 2*list.size, 2*list.size)
 		copy(newdataStore, list.data)
 		list.data = newdataStore
@@ -66,7 +66,7 @@ func (list *ArrayList) Append(value interface{}) {
 	list.size++
 }
 func (list *ArrayList) Clear() {
-	list.data = make([]interface{}, 0, list.capacity)
+	list.data = make([]interface{}, 0, list.Capacity)
 	list.size = 0
 }
 func (list *ArrayList) Delete(index int) error {

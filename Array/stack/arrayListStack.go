@@ -1,14 +1,17 @@
-package array
+package stack
 
-import "fmt"
+import (
+	array2 "AlgorithmGolang/Array/array"
+	"fmt"
+)
 
 type ArrayListStack struct {
-	array *ArrayList
+	array *array2.ArrayList
 }
 
 func NewArrayListStack() *ArrayListStack {
 	stack := new(ArrayListStack)
-	stack.array = NewArrayList()
+	stack.array = array2.NewArrayList()
 	return stack
 }
 
@@ -40,16 +43,8 @@ func (s *ArrayListStack) Push(data interface{}) {
 	}
 }
 func (s *ArrayListStack) IsFull() bool {
-	if s.array.Size() >= s.array.capacity {
-		return true
-	} else {
-		return false
-	}
+	return s.array.Size() >= s.array.Capacity
 }
 func (s *ArrayListStack) IsEmpty() bool {
-	if s.array.Size() == 0 {
-		return true
-	} else {
-		return false
-	}
+	return s.array.Size() == 0
 }
